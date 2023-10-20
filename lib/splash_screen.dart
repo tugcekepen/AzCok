@@ -9,24 +9,7 @@ class SplashSc extends StatefulWidget {
 }
 
 class _SplashScState extends State<SplashSc> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 3), () async {
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          pageBuilder: (_, __, ___) => LoginPage(),
-          transitionsBuilder: (_, animation, __, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      );
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,5 +32,24 @@ class _SplashScState extends State<SplashSc> {
             fit: BoxFit.fitHeight),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () async {
+      Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (_, __, ___) => LoginPage(),
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
+      );
+    });
   }
 }
