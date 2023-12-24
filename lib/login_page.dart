@@ -1,3 +1,4 @@
+import 'package:azcok/navigation_bar_pages/home_page.dart';
 import 'package:azcok/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,8 @@ class LoginPage extends StatefulWidget {
 class _SplashScState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    var loginUserName = 'Kullanıcı Adı*';
+    var loginPassword = 'Şifre*';
     return Scaffold(
       resizeToAvoidBottomInset:
           false, //klavye açıldığında overflow'u önlemek için
@@ -44,9 +47,10 @@ class _SplashScState extends State<LoginPage> {
                 height: LoginBody().height(context),
                 width: LoginBody().width(context),
                 child: TextFormField(
+                  textAlignVertical: TextAlignVertical.top,
                   textInputAction: TextInputAction.done,
                   decoration: LoginBody()
-                      .TextFormFieldDecoration("Kullanıcı Adı*", context),
+                      .TextFormFieldDecoration(loginUserName, context),
                 ),
               ),
               SizedBox(
@@ -56,11 +60,12 @@ class _SplashScState extends State<LoginPage> {
                 height: LoginBody().height(context),
                 width: LoginBody().width(context),
                 child: TextFormField(
+                  textAlignVertical: TextAlignVertical.top,
                   keyboardType: TextInputType.visiblePassword,
                   maxLength: 8,
                   textInputAction: TextInputAction.done,
                   decoration: LoginBody().TextFormFieldDecoration(
-                      "Şifre*", context,
+                      loginPassword, context,
                       counterText: '',
                       suffixIcon: Icon(Icons.visibility_outlined)),
                 ),
@@ -99,7 +104,9 @@ class _SplashScState extends State<LoginPage> {
                 height: ProjectVariables(context).screenSize!.height * 0.03,
               ),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/home_page');
+                  },
                   style: ElevatedButton.styleFrom(
                       elevation: CustomButtonStyle().elevation,
                       foregroundColor: CustomButtonStyle().foregroundColor,
@@ -140,7 +147,7 @@ class _SplashScState extends State<LoginPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => RegisterPage()));
+                                  builder: (context) => const RegisterPage()));
                         },
                         child: const Text(
                           "KAYDOL",

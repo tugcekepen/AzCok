@@ -1,8 +1,15 @@
+import 'package:azcok/navigation_bar_pages/categories.dart';
+import 'package:azcok/navigation_bar_pages/home_page.dart';
+import 'package:azcok/navigation_bar_pages/time_out_page.dart';
+import 'package:azcok/product_add_page.dart';
 import 'package:azcok/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+// ignore: depend_on_referenced_packages
+import 'package:intl/date_symbol_data_local.dart'; //initializeDateFormatting() metodu için import edildi
 
 void main() {
-  runApp(const MyApp());
+  initializeDateFormatting().then((value) => runApp(const MyApp())); //locale: 'tr_TR' 
 }
 
 class MyApp extends StatelessWidget {
@@ -14,12 +21,26 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink.shade50),
+        primaryColor: const Color.fromARGB(255, 2, 15, 139),
+        appBarTheme: const AppBarTheme(centerTitle: true),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            selectedItemColor: Color.fromARGB(255, 2, 15, 139)),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            foregroundColor: Colors.white,
+            backgroundColor: Color.fromARGB(255, 255, 157, 29),
+            shape: CircleBorder(),
+            iconSize: 30),
         fontFamily: "Montserrat",
         useMaterial3: true,
       ),
       home: const SplashSc(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/home_page': (context) => const MyHomePage(),
+        '/product_add_page': (context) => const ProductAddPage(),
+        '/categories':(context) => const CategoriesPage(),
+        '/time_out_page': (context) => const TimeOutPage()
+      },
     );
   }
 }

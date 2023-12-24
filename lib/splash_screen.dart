@@ -41,7 +41,7 @@ class _SplashScState extends State<SplashSc> {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (_, __, ___) => LoginPage(),
+          pageBuilder: (_, __, ___) => const LoginPage(),
           transitionsBuilder: (_, animation, __, child) {
             return FadeTransition(
               opacity: animation,

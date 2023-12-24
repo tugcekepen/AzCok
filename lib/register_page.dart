@@ -66,6 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: RegisterBody().height(context),
                     width: RegisterBody().width(context)!*0.495,
                     child: TextFormField(
+                      textAlignVertical: TextAlignVertical.top,
                       textInputAction: TextInputAction.done,
                       decoration: RegisterBody().TextFormFieldDecoration("Ad*", context),
                     ),
@@ -75,6 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: RegisterBody().height(context),
                     width: RegisterBody().width(context)!*0.495,
                     child: TextFormField(
+                      textAlignVertical: TextAlignVertical.top,
                       textInputAction: TextInputAction.done,
                       decoration: RegisterBody().TextFormFieldDecoration("Soyad*", context),
                     ),
@@ -87,6 +89,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: RegisterBody().height(context),
                   width: RegisterBody().width(context),
                   child: TextFormField(
+                    textAlignVertical: TextAlignVertical.top,
                     textInputAction: TextInputAction.done,
                     decoration: RegisterBody().TextFormFieldDecoration(text, context),
                   ),
@@ -104,7 +107,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Text("veya hesabınız varsa", style: LoginBody().textStyle(context)),
               ),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
+                  },
                   style: ElevatedButton.styleFrom(
                       elevation: CustomButtonStyle().elevation,
                       foregroundColor: CustomButtonStyle().foregroundColor,
