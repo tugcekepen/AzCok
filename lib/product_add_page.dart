@@ -13,6 +13,11 @@ class ProductAddPage extends StatefulWidget {
 }
 
 class _ProductAddPage extends State<ProductAddPage> {
+  final String hintProductName = "Ürün Adı";
+  final String hintQuantity = "Adet/Ağırlık";
+  final String hintEXP = "SKT";
+  final String hintRCD= "TETT";
+
   List<String> quantities = [
     Quantity.adet,
     Quantity.gram,
@@ -32,9 +37,9 @@ class _ProductAddPage extends State<ProductAddPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: Text("Ürün Ekle")),
       body: Column(
         children: [
+          SizedBox(height: ProjectVariables(context).pageTopHeight,),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Stack(children: [
@@ -95,7 +100,7 @@ class _ProductAddPage extends State<ProductAddPage> {
                     decoration: InputDecoration(
                         filled: true,
                         fillColor: CustomColors().fillColor,
-                        hintText: "Ürün Adı",
+                        hintText: hintProductName,
                         hintStyle: Theme.of(context)
                             .textTheme
                             .bodyLarge
@@ -121,6 +126,8 @@ class _ProductAddPage extends State<ProductAddPage> {
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
                             padding: EdgeInsets.only(left: 10, right: 5),
+                            icon: _CustomDropdownButton.buttonIcon,
+                            iconSize: _CustomDropdownButton.buttonIconSize,
                             value: selectedCategory,
                             borderRadius: BorderRadius.circular(10),
                             isExpanded: true,
@@ -131,7 +138,7 @@ class _ProductAddPage extends State<ProductAddPage> {
                                 child: Text(category.categoryName),
                               );
                             }).toList(),
-                            elevation: 5,
+                            elevation: _CustomDropdownButton.buttonElevation,
                             dropdownColor: Colors.blue[50],
                             onChanged: (String? value) {
                               setState(() {
@@ -162,6 +169,8 @@ class _ProductAddPage extends State<ProductAddPage> {
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
                             padding: EdgeInsets.only(left: 10, right: 5),
+                            icon: _CustomDropdownButton.buttonIcon,
+                            iconSize: _CustomDropdownButton.buttonIconSize,
                             value: selectedSubCategory,
                             borderRadius: BorderRadius.circular(10),
                             isExpanded: true,
@@ -172,7 +181,7 @@ class _ProductAddPage extends State<ProductAddPage> {
                                 child: Text(subCategory),
                               );
                             }).toList(),
-                            elevation: 5,
+                            elevation: _CustomDropdownButton.buttonElevation,
                             dropdownColor: Colors.blue[50],
                             onChanged: (String? value) {
                               setState(() {
@@ -197,7 +206,7 @@ class _ProductAddPage extends State<ProductAddPage> {
                     decoration: InputDecoration(
                         filled: true,
                         fillColor: CustomColors().fillColor,
-                        hintText: "Adet/Ağırlık",
+                        hintText: hintQuantity,
                         hintStyle: Theme.of(context)
                             .textTheme
                             .bodyLarge
@@ -210,10 +219,14 @@ class _ProductAddPage extends State<ProductAddPage> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height / 2.87,
-                    left: MediaQuery.of(context).size.width / 1.53),
+                    top: MediaQuery.of(context).size.height / 2.8,
+                    left: MediaQuery.of(context).size.width / 1.57),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
+                    icon: _CustomDropdownButton.buttonIcon,
+                    iconSize: _CustomDropdownButton.buttonIconSize,
+                    isDense: true,
+                    alignment: AlignmentDirectional.center,
                       value: selectedQuantity,
                       items: quantities
                           .map((String q) => DropdownMenuItem(
@@ -221,7 +234,7 @@ class _ProductAddPage extends State<ProductAddPage> {
                                 child: Text(q),
                               ))
                           .toList(),
-                      elevation: 5,
+                      elevation: _CustomDropdownButton.buttonElevation,
                       dropdownColor: Colors.blue[50],
                       style: Theme.of(context).textTheme.bodyLarge,
                       borderRadius: BorderRadius.circular(10),
@@ -246,7 +259,7 @@ class _ProductAddPage extends State<ProductAddPage> {
                         decoration: InputDecoration(
                             filled: true,
                             fillColor: CustomColors().fillColor,
-                            hintText: "SKT",
+                            hintText: hintEXP,
                             hintStyle: Theme.of(context)
                                 .textTheme
                                 .bodyLarge
@@ -269,7 +282,7 @@ class _ProductAddPage extends State<ProductAddPage> {
                         decoration: InputDecoration(
                             filled: true,
                             fillColor: CustomColors().fillColor,
-                            hintText: "TETT",
+                            hintText: hintRCD,
                             hintStyle: Theme.of(context)
                                 .textTheme
                                 .bodyLarge
@@ -299,4 +312,10 @@ class _ProductAddPage extends State<ProductAddPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+}
+
+class _CustomDropdownButton {
+  static const Icon buttonIcon = Icon(Icons.keyboard_arrow_down);
+  static const double buttonIconSize = 22;
+  static const int buttonElevation = 5;
 }

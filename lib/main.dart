@@ -4,7 +4,6 @@ import 'package:azcok/navigation_bar_pages/time_out_page.dart';
 import 'package:azcok/product_add_page.dart';
 import 'package:azcok/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/date_symbol_data_local.dart'; //initializeDateFormatting() metodu için import edildi
 
@@ -29,7 +28,8 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.white,
             backgroundColor: Color.fromARGB(255, 255, 157, 29),
             shape: CircleBorder(),
-            iconSize: 30),
+            elevation: 5,
+            iconSize: 30,),
         fontFamily: "Montserrat",
         useMaterial3: true,
       ),

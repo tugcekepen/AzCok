@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class ProjectVariables {
   Size? screenSize;
   Size? logoSize;
+  double? pageTopHeight;
+  EdgeInsetsGeometry? padding;
 
   ProjectVariables(BuildContext context) {
     screenSize = MediaQuery.of(context).size;
     logoSize = MediaQuery.of(context).size * 0.15;
+    pageTopHeight = MediaQuery.of(context).size.height * 0.04;
+    padding = EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, right: MediaQuery.of(context).size.width * 0.03);
   }
 }
 class CustomColors {

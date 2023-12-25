@@ -1,6 +1,6 @@
+import 'package:azcok/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-
 import '../components/bottom_navigation_bar.dart';
 import '../data/Categories.dart';
 import '../models/Category.dart';
@@ -27,13 +27,26 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        title: Text("deneme"),
-      ),
       body: Column(children: [
+        SizedBox(height: ProjectVariables(context).pageTopHeight,),
+        Padding(
+          padding: ProjectVariables(context).padding!,
+          child: Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Image.asset("lib/images/app_title.png",
+                alignment: Alignment.bottomLeft, height: 30,),
+              ),
+              Expanded(
+                flex:1,
+                child: Image.asset("lib/images/bebekBakim.png", height: 50,),)
+            ]
+            
+          ),
+        ),
         SizedBox(
-            height: MediaQuery.of(context).size.height * 0.45,
+            height: MediaQuery.of(context).size.height * 0.49,
             child: TableCalendar(
               firstDay: DateTime(2010, 1, 1),
               lastDay: DateTime(2050, 12, 31),
@@ -58,15 +71,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   formatButtonVisible: false, titleCentered: true),
               onDaySelected: _onDaySelected,
               selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-            )),
-        const Padding(
-          padding: EdgeInsets.only(left: 15, right: 15),
-          child: Divider(),
+            ),),
+        Padding(
+          padding: ProjectVariables(context).padding!,
+          child: const Divider(),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.3,
+          height: MediaQuery.of(context).size.height * 0.25,
           child: ListView(
-            padding: const EdgeInsets.only(left: 15, right: 15),
+            padding: ProjectVariables(context).padding!,
             shrinkWrap: true,
             children: [
               for (Category category in sortedCategories)
@@ -87,7 +100,6 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         tooltip: 'deneme',
         mini: true,
-        elevation: 5,
         child: const Icon(Icons.add),
       ),
     );
@@ -95,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class _CustomCalendarStyles {
-  final double height = 35;
+  final double height = 20;
 
   Color weekendTextColor(BuildContext context) {
     return Theme.of(context).primaryColor;
