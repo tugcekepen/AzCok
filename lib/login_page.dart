@@ -1,4 +1,5 @@
-import 'package:azcok/navigation_bar_pages/home_page.dart';
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:azcok/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +68,7 @@ class _SplashScState extends State<LoginPage> {
                   decoration: LoginBody().TextFormFieldDecoration(
                       loginPassword, context,
                       counterText: '',
-                      suffixIcon: Icon(Icons.visibility_outlined)),
+                      suffixIcon: const Icon(Icons.visibility_outlined)),
                 ),
               ),
               Row(

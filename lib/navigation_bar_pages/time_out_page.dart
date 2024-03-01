@@ -1,5 +1,4 @@
 import 'package:azcok/components/bottom_navigation_bar.dart';
-import 'package:azcok/custom.dart';
 import 'package:azcok/models/Quantity.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +33,7 @@ class _TimeOutPageState extends State<TimeOutPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(),
-      body: Column(
+      body: const Column(
         children: [],
       ),
       bottomNavigationBar: customBottomNavigationBar(context),

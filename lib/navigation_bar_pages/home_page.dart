@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ListTile(
                   isThreeLine: true,
                   title: Text(category.categoryName),
-                  subtitle: Text("${category.totalProduct.toString()} ürün"),
+                  subtitle: Text("${category.productCount.toString()} ürün"),
                   trailing: Image.asset(category.categoryPic),
                 )
             ],

@@ -36,7 +36,7 @@ BottomNavigationBar customBottomNavigationBar(BuildContext context) =>
           case 4:
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MyHomePage()),
+              MaterialPageRoute(builder: (context) => const MyHomePage()),
             );
             break;
         }
