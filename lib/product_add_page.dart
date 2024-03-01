@@ -40,6 +40,22 @@ class _ProductAddPage extends State<ProductAddPage> {
       body: Column(
         children: [
           SizedBox(height: ProjectVariables(context).pageTopHeight,),
+        Padding(
+          padding: ProjectVariables(context).padding!,
+          child: Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Image.asset("lib/images/app_title.png",
+                alignment: Alignment.bottomLeft, height: 30,),
+              ),
+              Expanded(
+                flex:1,
+                child: Image.asset("lib/images/bebekBakim.png", height: 50,),)
+            ]
+            
+          ),
+        ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Stack(children: [
